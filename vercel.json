@@ -1,5 +1,5 @@
 {
-  "installCommand": "npm install --prefix website",
+  "installCommand": "npm install && npm install --prefix website",
   "buildCommand": "npm run build --prefix website",
   "outputDirectory": "website/.next",
   "framework": "nextjs"
