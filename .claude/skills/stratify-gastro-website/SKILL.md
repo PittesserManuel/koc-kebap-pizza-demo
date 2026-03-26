@@ -44,3 +44,40 @@ Pflicht-Features:
 - Google Fonts
 - Demo-Banner: "Dies ist eine Demo von Stratify – stratify.at"
 - "Powered by Stratify" im Footer
+
+## Vercel-Deployment (PFLICHT)
+
+Die Website liegt in einem Unterordner (`/website/`), nicht im Repo-Root.
+Vercel erkennt Next.js NUR wenn `next` in der Root `package.json` steht UND im Root installiert wird.
+
+**Nach dem Erstellen der Website MÜSSEN diese Dateien im Repo-Root erstellt werden:**
+
+1. **Root `package.json`** (falls noch nicht vorhanden):
+```json
+{
+  "name": "PROJEKTNAME",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix website",
+    "dev": "npm run dev --prefix website",
+    "start": "npm run start --prefix website"
+  },
+  "dependencies": {
+    "next": "^14.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
+```
+
+2. **Root `vercel.json`** (falls noch nicht vorhanden):
+```json
+{
+  "installCommand": "npm install && npm install --prefix website",
+  "buildCommand": "npm run build --prefix website",
+  "outputDirectory": "website/.next",
+  "framework": "nextjs"
+}
+```
+
+**Warum:** Vercel prüft die Root `package.json` auf `next` als Dependency für die Framework-Erkennung. Der Custom `installCommand` muss BEIDE installieren: Root (für Versionserkennung) und Website (für den eigentlichen Build).

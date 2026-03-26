@@ -27,3 +27,16 @@ Erfinde realistische Preise wenn keine vorhanden (Döner ~€8-12, Pizza ~€9-1
 
 ## Output
 Alle Dateien unter /orderapp/
+
+## Vercel-Deployment (PFLICHT)
+
+Falls die Orderapp als Haupt-Deploy auf Vercel laufen soll und in einem Unterordner (`/orderapp/`) liegt:
+Vercel erkennt Next.js NUR wenn `next` in der Root `package.json` steht UND im Root installiert wird.
+
+**Nach dem Erstellen der App MÜSSEN diese Dateien im Repo-Root erstellt/aktualisiert werden (falls noch nicht durch Website-Skill geschehen):**
+
+1. **Root `package.json`** – muss `next`, `react`, `react-dom` als Dependencies enthalten
+2. **Root `vercel.json`** – muss `installCommand`, `buildCommand`, `outputDirectory` auf den richtigen Unterordner zeigen
+
+Siehe `stratify-gastro-website/SKILL.md` für die genauen Templates.
+Falls die Website bereits deployed wird und die Root-Dateien existieren, müssen diese NICHT nochmal geändert werden.

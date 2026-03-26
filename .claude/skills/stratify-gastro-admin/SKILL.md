@@ -21,3 +21,16 @@ Baut das Betreiber-seitige Admin-Panel.
 
 ## Output
 Alle Dateien unter /admin/
+
+## Vercel-Deployment (PFLICHT)
+
+Falls das Admin-Panel als Haupt-Deploy auf Vercel laufen soll und in einem Unterordner (`/admin/`) liegt:
+Vercel erkennt Next.js NUR wenn `next` in der Root `package.json` steht UND im Root installiert wird.
+
+**Nach dem Erstellen des Panels MÜSSEN diese Dateien im Repo-Root erstellt/aktualisiert werden (falls noch nicht durch Website-Skill geschehen):**
+
+1. **Root `package.json`** – muss `next`, `react`, `react-dom` als Dependencies enthalten
+2. **Root `vercel.json`** – muss `installCommand`, `buildCommand`, `outputDirectory` auf den richtigen Unterordner zeigen
+
+Siehe `stratify-gastro-website/SKILL.md` für die genauen Templates.
+Falls die Website bereits deployed wird und die Root-Dateien existieren, müssen diese NICHT nochmal geändert werden.

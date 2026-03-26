@@ -58,7 +58,12 @@
 3. Speichere unter `/admin/`
 4. Schreibe "SCHRITT 3 FERTIG"
 
-### ✅ Schritt 4 – Abschluss
+### ✅ Schritt 4 – Vercel-Deploy-Konfiguration
+1. Erstelle Root `package.json` mit `next`, `react`, `react-dom` als Dependencies und Scripts die auf `/website/` zeigen
+2. Erstelle Root `vercel.json` mit `installCommand: "npm install && npm install --prefix website"`, `buildCommand`, `outputDirectory: "website/.next"`, `framework: "nextjs"`
+3. Grund: Vercel erkennt Next.js nur über die Root `package.json` – ohne diese → 404 Error
+
+### ✅ Schritt 5 – Abschluss
 Erstelle `DONE.md` mit allen Start-Befehlen und Vercel-Deploy-Befehl.
 
 **WICHTIG:** Keine Fragen stellen. Fehlende Daten = plausible Beispieldaten erfinden.
