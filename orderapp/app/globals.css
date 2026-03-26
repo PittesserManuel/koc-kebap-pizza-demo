@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f9f7f4;
+  color: #1a1a1a;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #B83030;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B2020;
+}
+
+/* Smooth category tab scrolling */
+.category-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.category-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cart drawer transition */
+.cart-enter {
+  transform: translateX(100%);
+}
+.cart-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-in-out;
+}
+.cart-exit {
+  transform: translateX(0);
+}
+.cart-exit-active {
+  transform: translateX(100%);
+  transition: transform 300ms ease-in-out;
+}
+
+/* Backdrop */
+.backdrop-enter {
+  opacity: 0;
+}
+.backdrop-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+.backdrop-exit {
+  opacity: 1;
+}
+.backdrop-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
