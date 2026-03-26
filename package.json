@@ -1,0 +1,10 @@
+{
+  "name": "koc-kebap-pizza-demo",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix website",
+    "dev": "npm run dev --prefix website",
+    "start": "npm run start --prefix website",
+    "install:website": "npm install --prefix website"
+  }
+}
